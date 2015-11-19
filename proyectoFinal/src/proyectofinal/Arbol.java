@@ -11,7 +11,7 @@ package proyectofinal;
  */
 public class Arbol {
     
-    public Nodo Raiz;
+public Nodo Raiz;
     
     public Arbol()
     {
@@ -57,7 +57,7 @@ public class Arbol {
     public void imprimePre(){
         imprimePre(this.Raiz);
     }
-    private void imprimePre(Nodo n){
+    public void imprimePre(Nodo n){
         if (n!=null){
             System.out.print(+n.getDato()+" ");
             imprimePre(n.getHijoIzq());
@@ -87,9 +87,9 @@ public class Arbol {
          
 
     
-     public void eliminar(int numero)
+     public void eliminar(int num)
     {
-        eliminar(this.Raiz,numero);
+        eliminar(this.Raiz,num);
     }
      
      public boolean eliminar (Nodo nodo,int numero){
@@ -174,7 +174,7 @@ public class Arbol {
         
     public boolean tercerCaso( Nodo nodo,int num ) {
         
-        Nodo nodoALaIzquierda = porIzquierda( nodo.getHijoDer() );
+        Nodo nodoALaIzquierda = porIzq( nodo.getHijoDer() );
         if ( nodoALaIzquierda != null ) {
             nodo.setDato(nodoALaIzquierda.getDato() );
             eliminar(nodoALaIzquierda,num);
@@ -183,14 +183,14 @@ public class Arbol {
         return false;
     }
     
-    public Nodo porIzquierda(Nodo nodo) {
+    public Nodo porIzq(Nodo nodo) {
         if (nodo.getHijoIzq() != null) {
-            return porIzquierda( nodo.getHijoIzq() );
+            return porIzq( nodo.getHijoIzq() );
         }
         return nodo;
     }
     
-    public void buscaPorDer(int num){
+    public void buscarHijoDer(int num){
               buscarHijoDer(this.Raiz,num);
                    
                   
@@ -216,9 +216,9 @@ public class Arbol {
                
                
           }
-          
-    public void buscarPorIzquierda(int num){
-              buscarHijoIzq(this.Raiz,num);
+  // para buscar un hijo izquierdo        
+    public void buscarHijoIzq(int num){
+             buscarHijoIzq(this.Raiz,num);
                    
                   
           }
@@ -233,12 +233,12 @@ public class Arbol {
            }
            else if (num>no.getDato()){
                         no = no.getHijoDer();
-                        buscarHijoIzq(no,num);
+                        Arbol.this.buscarHijoIzq(no,num);
                     
              }
                 else if (num<no.getDato()){
                     no = no.getHijoIzq();
-                        buscarHijoIzq(no,num);
+                        Arbol.this.buscarHijoIzq(no,num);
                 }
            
           }

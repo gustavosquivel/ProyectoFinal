@@ -10,7 +10,8 @@ package proyectofinal;
  * @author PC
  */
 public class Nodo {
-      int dato;
+    
+  int dato;
       Nodo raiz;
       Nodo hijoIzq;
       Nodo hijoDer;
@@ -63,6 +64,5 @@ public Nodo(int dato)
     }
     
     
-    
-    
+       
 }

@@ -1,9 +1,6 @@
 public class ProyectoFinal {
 
-    /**
-     * @param args the command line arguments
-     */
-   public static void main(String[] args) {
+     public static void main(String[] args) {
          Arbol arbol = new Arbol();
          String arg = args[0];
 

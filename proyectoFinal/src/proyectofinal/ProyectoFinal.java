@@ -7,6 +7,7 @@ public class ProyectoFinal {
          Arbol arbol = new Arbol();
          String arg = args[0];
 
+         
     if(args.length>0 && arg.contains("insertar(")&&(arg.contains("&elimina(")&&(arg.contains("&insertar(")&&(arg.contains("&buscaHijoDer(")))))
     {
                int valor;
@@ -127,6 +128,64 @@ public class ProyectoFinal {
                arbol.buscarHijoIzq(valor3);
                System.out.println();
          }
+         else if(args.length>0 &&(arg.contains("insertar(")&&(arg.contains("&elimina(")&&(arg.contains("&imprimePre()")))))
+            {
+                int valor;
+                String comparar;
+                int inicio = arg.indexOf("insertar(");
+                int fin = arg.lastIndexOf("&elimina");
+                comparar = arg.substring(inicio+9,fin-1);
+                int sinComa;
+                String[] almacenar = new String[100];
+                almacenar[0] = comparar;
+                String[] quitarComa = almacenar[0].split(",");
+            
+                for(int i=0;i<quitarComa.length;i++)
+                {
+                sinComa = Integer.parseInt(quitarComa[i]);
+                arbol.insertar(sinComa);
+                } 
+                int inicio1 = arg.indexOf("elimina(");
+                int fin1 = arg.lastIndexOf("&imprimePre");
+                String comparar1;
+                comparar1 = arg.substring(inicio1+8,fin1-1);
+                String[] almacenar2 = new String[100];
+                almacenar2[1] = comparar1;
+                String[] quitarComa1 = almacenar2[1].split(",");
+                
+                for(int i=0;i<quitarComa1.length;i++)
+                {
+                sinComa = Integer.parseInt(quitarComa1[i]);
+                valor = sinComa;
+                arbol.eliminar(valor);
+                }
+                System.out.println();
+                System.out.print(">");
+                arbol.imprimePre();
+                System.out.println();
+            }    
+         else if(args.length>0 &&(arg.contains("insertar(")&&(arg.contains("&imprimePre()"))))
+            {
+   
+                String comparar;
+                int inicio = arg.indexOf("insertar(");
+                int fin = arg.lastIndexOf("&imprimePre");
+                comparar = arg.substring(inicio+9,fin-1);
+                int sinComa;
+                String[] almacenar = new String[100];
+                almacenar[0] = comparar;
+                String[] quitarComa = almacenar[0].split(",");
+                
+                for(int i=0;i<quitarComa.length;i++)
+                {
+                sinComa = Integer.parseInt(quitarComa[i]);
+                arbol.insertar(sinComa);
+                } 
+                System.out.println();
+                System.out.print(">");
+                arbol.imprimePre();
+                System.out.println();
+            }    
          else if(args.length>0 &&(arg.contains("insertar(")&&(arg.contains("&elimina(")&&(arg.contains("&imprimeIno()")))))
          {
                 int valor;
@@ -188,64 +247,7 @@ public class ProyectoFinal {
                 System.out.println();
             } 
          
-         else if(args.length>0 &&(arg.contains("insertar(")&&(arg.contains("&elimina(")&&(arg.contains("&imprimePre()")))))
-            {
-                int valor;
-                String comparar;
-                int inicio = arg.indexOf("insertar(");
-                int fin = arg.lastIndexOf("&elimina");
-                comparar = arg.substring(inicio+9,fin-1);
-                int sinComa;
-                String[] almacenar = new String[100];
-                almacenar[0] = comparar;
-                String[] quitarComa = almacenar[0].split(",");
-            
-                for(int i=0;i<quitarComa.length;i++)
-                {
-                sinComa = Integer.parseInt(quitarComa[i]);
-                arbol.insertar(sinComa);
-                } 
-                int inicio1 = arg.indexOf("elimina(");
-                int fin1 = arg.lastIndexOf("&imprimePre");
-                String comparar1;
-                comparar1 = arg.substring(inicio1+8,fin1-1);
-                String[] almacenar2 = new String[100];
-                almacenar2[1] = comparar1;
-                String[] quitarComa1 = almacenar2[1].split(",");
-                
-                for(int i=0;i<quitarComa1.length;i++)
-                {
-                sinComa = Integer.parseInt(quitarComa1[i]);
-                valor = sinComa;
-                arbol.eliminar(valor);
-                }
-                System.out.println();
-                System.out.print(">");
-                arbol.imprimePre();
-                System.out.println();
-            }    
-         else if(args.length>0 &&(arg.contains("insertar(")&&(arg.contains("&imprimePre()"))))
-            {
-   
-                String comparar;
-                int inicio = arg.indexOf("insertar(");
-                int fin = arg.lastIndexOf("&imprimePre");
-                comparar = arg.substring(inicio+9,fin-1);
-                int sinComa;
-                String[] almacenar = new String[100];
-                almacenar[0] = comparar;
-                String[] quitarComa = almacenar[0].split(",");
-                
-                for(int i=0;i<quitarComa.length;i++)
-                {
-                sinComa = Integer.parseInt(quitarComa[i]);
-                arbol.insertar(sinComa);
-                } 
-                System.out.println();
-                System.out.print(">");
-                arbol.imprimePre();
-                System.out.println();
-            }    
+        
          else  if(args.length>0 &&(arg.contains("insertar(")&&(arg.contains("&elimina(")&&(arg.contains("&imprimePos()")))))
             {
                 int valor;
